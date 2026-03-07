@@ -28,15 +28,14 @@ bash:
 	$(COMPOSE_EXEC) bash
 
 # =====================================
-# Installation
+# Initialisation
 # =====================================
 
-install:
-	$(COMPOSE_EXEC) composer install
-	$(MAKE) init-project
-
 init:
-	$(MAKE) create-database
+	$(MAKE) up
+	$(COMPOSE_EXEC) composer install
+	$(COMPOSE_EXEC) $(CONSOLE) doctrine:database:drop --force --if-exists --env=dev
+	$(COMPOSE_EXEC) $(CONSOLE) doctrine:database:create --env=dev
 	$(MAKE) cache-clear
 
 # =====================================
@@ -54,11 +53,9 @@ migrate:
 # =====================================
 
 create-database:
-	$(COMPOSE_EXEC) $(CONSOLE) app:clean-uploaded-file-fixture --env=dev
 	$(COMPOSE_EXEC) $(CONSOLE) doctrine:database:drop --force --if-exists --env=dev
 	$(COMPOSE_EXEC) $(CONSOLE) doctrine:database:create --env=dev
 	$(COMPOSE_EXEC) $(CONSOLE) doctrine:migrations:migrate --no-interaction --env=dev
-	$(COMPOSE_EXEC) $(CONSOLE) app:create-admin-account --env=dev
 	$(COMPOSE_EXEC) $(CONSOLE) doctrine:fixtures:load --no-interaction --append --env=dev
 	$(COMPOSE_EXEC) $(CONSOLE) cache:clear --env=dev
 
@@ -71,7 +68,6 @@ test-db:
 	$(COMPOSE_EXEC) $(CONSOLE) doctrine:database:drop --force --if-exists --env=test
 	$(COMPOSE_EXEC) $(CONSOLE) doctrine:database:create --env=test
 	$(COMPOSE_EXEC) $(CONSOLE) doctrine:migrations:migrate --no-interaction --env=test
-	$(COMPOSE_EXEC) $(CONSOLE) app:create-admin-account --env=test
 	$(COMPOSE_EXEC) $(CONSOLE) doctrine:fixtures:load --no-interaction --append --env=test
 
 # =====================================

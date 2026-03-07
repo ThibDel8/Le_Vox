@@ -43,8 +43,9 @@ Ce projet est entièrement conteneurisé avec **Docker**. Un **Makefile** est di
     ```bash
     make init
     ```
-Cette commande lance les conteneurs (Nginx, PHP, MySQL), installe les dépendances Composer et prépare la base de données.
+    Cette commande lance les conteneurs (Nginx, PHP, MySQL), installe les dépendances Composer et prépare la base de données.
 4.  **Accéder au site**
+
     Le site est disponible sur : [http://localhost:8080](http://localhost:8080)
 
 Cette commande lance les conteneurs (Nginx, PHP, MySQL), installe les dépendances Composer et prépare la base de données.
@@ -59,4 +60,4 @@ Ce projet est sous licence **MIT**. Vous êtes libre de copier, modifier et dist
 
 ## ✉️ Contact
 
-Développé par **Thibault Delattre** - N'hésitez pas à ouvrir une *Issue* pour toute suggestion ou bug !
+Développé par **[Thibault Delattre](https://www.linkedin.com/in/thibault-delattre8/)** - N'hésitez pas à ouvrir une *Issue* pour toute suggestion ou bug !

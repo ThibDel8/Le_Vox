@@ -1,0 +1,70 @@
+/* Logo et Grands Titres */
+@font-face {
+    font-family: 'CinemaLogo';
+    src: url('../../fonts/MyriadPro-BoldSemiCn.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Textes et Synopsis */
+@font-face {
+    font-family: 'CinemaBody';
+    src: url('../../fonts/OpenSansSemiCondensed-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'CinemaBody';
+    src: url('../../fonts/OpenSansSemiCondensed-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Horaires */
+@font-face {
+    font-family: 'CinemaUI';
+    src: url('../../fonts/Inter18pt-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Boutons */
+@font-face {
+    font-family: 'CinemaUI';
+    src: url('../../fonts/Inter24pt-SemiBold.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'CinemaBody', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    color: var(--grey-dark);
+    -webkit-font-smoothing: antialiased; /* Rendu plus propre sur Mac/iOS */
+}
+
+h2 {
+    font-family: 'CinemaLogo', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 1rem;
+}
+
+.horaires {
+    font-family: 'CinemaUI', sans-serif;
+    font-weight: 500;
+    font-variant-numeric: tabular-nums;
+}
+
+button, .btn {
+    font-family: 'CinemaUI', sans-serif;
+    font-weight: 500;
+    padding: 3px;
+    cursor: pointer;
+}

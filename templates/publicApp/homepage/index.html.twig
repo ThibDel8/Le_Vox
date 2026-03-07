@@ -1,0 +1,65 @@
+{% extends 'publicApp/base.html.twig' %}
+
+{% block body %}
+
+<main class="container">
+
+    <section class="alert">
+        <strong>Information importante</strong>
+        <p>
+            Le programme du cinéma n’est plus distribué dans les boîtes aux lettres.
+            Vous pouvez le retrouver en mairie, à la médiathèque, au cinéma et sur les panneaux du village.
+            <br><br>
+            Pour recevoir le programme par email, merci de laisser vos coordonnées en mairie.
+        </p>
+    </section>
+
+    <section>
+        <h2>À l’affiche</h2>
+
+        <div class="films">
+
+            <!-- FILM 1 -->
+            <article class="film">
+                <img src="https://antreducinema.fr/wp-content/uploads/2020/04/Titanic.jpg" alt="Affiche du film">
+                <div>
+                    <h3>Titre du film</h3>
+                    <div class="infos">Durée : 1h45 • Tous publics</div>
+                    <div class="seances">
+                        <strong>Séances :</strong><br>
+                        Vendredi 20h30<br>
+                        Dimanche 16h00
+                    </div>
+                </div>
+            </article>
+
+            <!-- FILM 2 -->
+            <article class="film">
+                <img src="https://m.media-amazon.com/images/I/61BkIzhaf3L._AC_UF1000,1000_QL80_.jpg" alt="Affiche du film">
+                <div>
+                    <h3>Autre film</h3>
+                    <div class="infos">Durée : 2h00 • À partir de 10 ans</div>
+                    <div class="seances">
+                        <strong>Séances :</strong><br>
+                        Samedi 20h30
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="infos-pratiques">
+        <h2>Infos pratiques</h2>
+        <ul>
+            <li><strong>Tarif plein :</strong> 4,50 €</li>
+            <li><strong>Tarif réduit :</strong> 3,50 €</li>
+            <li><strong>Paiement :</strong> espèces uniquement (pas de chèque, pas de carte bancaire)</li>
+            <li><strong>Téléphone :</strong> 03 22 52 97 49</li>
+        </ul>
+    </section>
+
+</main>
+
+
+{% endblock %}

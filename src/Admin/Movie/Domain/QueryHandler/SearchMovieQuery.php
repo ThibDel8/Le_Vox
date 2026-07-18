@@ -19,11 +19,11 @@ readonly class SearchMovieQuery
      */
     public function fetch(SearchMovieRequest $request): array
     {
-        if (!$request->getTitle()) {
+        if (!$request->title) {
             return [];
         }
 
-        $results = $this->tmdbService->searchMoviesByTitle($request->getTitle());
+        $results = $this->tmdbService->searchMoviesByTitle($request->title);
         $genres = $this->tmdbService->getGenres();
 
         $genreMap = [];

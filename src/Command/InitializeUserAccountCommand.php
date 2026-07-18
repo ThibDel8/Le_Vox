@@ -31,9 +31,9 @@ class InitializeUserAccountCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $user = User::create($this->adminInitUsername);
+        $user = User::create(username: $this->adminInitUsername);
 
-        $existing = $this->userReadRepository->findByUsername($user->getUserIdentifier());
+        $existing = $this->userReadRepository->findByUsername(username: $user->getUserIdentifier());
 
         if (null !== $existing) {
             $this->userWriteRepository->delete($existing);

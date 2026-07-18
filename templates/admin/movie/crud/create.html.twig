@@ -7,70 +7,74 @@
 <div class="movie-editor">
 
     <h2 class="movie-editor__title">Informations sur le film</h2>
-    <div class="movie-editor__layout">
-        <div class="movie-editor__poster">
-            {% if movieResponse.poster is not null %}
-                <img src="{{ movieResponse.poster }}" alt="Poster du film">
-            {% else %}
-                <img src="{{ asset('images/posters/no-dispo.png') }}" alt="Poster du film non disponible">
-            {% endif %}
-        </div>
-
-        <!--  Ajouter un upload image -->
-
-        <div class="movie-editor__fields">
-            <div class="form-group">
-                <label>Titre</label>
-                <input type="text" value="{{ movieResponse.title }}">
-            </div>
-            <div class="form-group">
-                <label>Date de sortie</label>
-                <input type="text" value="{{ movieResponse.releaseDate }}">
-            </div>
-            <div class="form-group">
-                <label>Réalisation</label>
-                <input type="text" value="{{ movieResponse.directing }}">
-            </div>
-            <div class="form-group">
-                <label>Genres</label>
-                <input type="text" value="{{ movieResponse.genres }}">
-            </div>
-            <div class="form-group">
-                <label>Description</label>
-                <textarea>{{ movieResponse.description }}</textarea>
-            </div>
-        </div>
-    </div>
-
-    <div>
-        <h2 class="movie-editor__title">Séances en salle</h2>
-        <div class="movie-creator__layout">
-
-            <div class="session-item">
-                <input type="date" value="2026-03-10">
-                <input type="time" value="18:00">
-                <input type="time" value="21:00">
-                <button class="edit">Modifier</button>
-                <button>Supprimer</button>
+    {{ form_start(form) }}
+        <div class="movie-editor__layout">
+            <div class="movie-editor__poster">
+                <img
+                    id="poster-preview"
+                    src="{{ form.poster.vars.value ?: asset('images/posters/no-dispo.png') }}"
+                    alt="Poster du film">
             </div>
 
-            <div class="session-item">
-                <input type="date" value="2026-03-11">
-                <input type="time" value="16:00">
-                <input type="time" value="19:00">
-                <button class="edit">Modifier</button>
-                <button>Supprimer</button>
-            </div>
-
-            <div class="add-session">
-                <button>+ Ajouter une séance</button>
+            <div class="movie-editor__fields">
+                <div class="form-group">
+                    {{ form_label(form.title) }}
+                    {{ form_widget(form.title) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.releaseDate) }}
+                    {{ form_widget(form.releaseDate) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.directing) }}
+                    {{ form_widget(form.directing) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.genres) }}
+                    {{ form_widget(form.genres) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.poster) }}
+                    {{ form_widget(form.poster) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.description) }}
+                    {{ form_widget(form.description) }}
+                </div>
             </div>
         </div>
 
-        <div class="movie-editor__actions">
-            <button class="btn" type="submit">Enregistrer</button>
+        <div>
+            <h2 class="movie-editor__title">Séances en salle</h2>
+            <div class="movie-creator__layout">
+
+                <div class="session-item">
+                    <input type="date" value="2026-03-10">
+                    <input type="time" value="18:00">
+                    <input type="time" value="21:00">
+                    <button class="edit">Modifier</button>
+                    <button>Supprimer</button>
+                </div>
+
+                <div class="session-item">
+                    <input type="date" value="2026-03-11">
+                    <input type="time" value="16:00">
+                    <input type="time" value="19:00">
+                    <button class="edit">Modifier</button>
+                    <button>Supprimer</button>
+                </div>
+
+                <div class="add-session">
+                    <button>+ Ajouter une séance</button>
+                </div>
+            </div>
+
+            <div class="movie-editor__actions">
+                <button class="btn" type="submit">Enregistrer</button>
+            </div>
         </div>
-    </div>
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
 
 </div>
 

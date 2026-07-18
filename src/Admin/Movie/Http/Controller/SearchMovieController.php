@@ -9,25 +9,31 @@ use App\Admin\Movie\Domain\QueryHandler\SearchMovieQuery;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Attribute\AsController;
+use Symfony\Component\HttpKernel\Attribute\MapQueryString;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Core\Authorization\Voter\AuthenticatedVoter;
 
+#[AsController]
 final class SearchMovieController extends AbstractController
 {
-    public function __construct(private readonly SearchMovieQuery $searchMovieQuery)
-    {
+    public function __construct(
+        private readonly SearchMovieQuery $searchMovieQuery,
+    ) {
     }
 
     #[Route(path: '/backstage-admin/movies/search', name: 'admin_movie_search', methods: [Request::METHOD_GET])]
-    public function __invoke(Request $request): Response
-    {
-        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+    public function __invoke(
+        #[MapQueryString] SearchMovieRequest $searchMovieRequest,
+    ): Response {
+        $this->denyAccessUnlessGranted(AuthenticatedVoter::IS_AUTHENTICATED_FULLY);
 
-        $searchMovieRequest = SearchMovieRequest::fromRequest($request);
+        $movies = $this->searchMovieQuery->fetch(request: $searchMovieRequest);
 
-        $movies = $this->searchMovieQuery->fetch($searchMovieRequest);
-
-        return $this->render('admin/movie/search.html.twig', [
-            'movies' => $movies,
+        return $this->render(
+            view: 'admin/movie/search.html.twig',
+            parameters: [
+                'movies' => $movies,
         ]);
     }
 }

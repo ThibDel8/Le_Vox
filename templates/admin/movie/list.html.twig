@@ -3,5 +3,30 @@
 {% block h1 %}Liste des films{% endblock %}
 
 {% block body %}
+
+    <section>
+        <h2>Films enregistrés</h2>
+
+        <div class="films">
+
+            {% for movie in movies %}
+                <article class="film">
+                    <img src="{{ movie.poster ?? asset('images/posters/no-dispo.png') }}" alt="Affiche du film {{ movie.title }}">
+                    <div>
+                        <h3>{{ movie.title }}</h3>
+                        <div class="infos">Durée : 1h45 • Tous publics</div>
+                        <div class="seances">
+                            <strong>Séances :</strong><br>
+                            Vendredi 20h30<br>
+                            Dimanche 16h00
+                        </div>
+                    </div>
+                </article>
+            {% endfor %}
+
+        </div>
+    </section>
+
     <a class="btn" href="{{ path('admin_movie_search') }}">Ajouter un film</a>
+
 {% endblock %}

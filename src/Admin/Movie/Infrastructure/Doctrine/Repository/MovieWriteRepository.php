@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace App\Admin\User\Infrastructure\Doctrine\Repository;
+namespace App\Admin\Movie\Infrastructure\Doctrine\Repository;
 
+use App\Admin\Movie\Domain\Repository\MovieWriteRepositoryInterface;
 use App\Admin\User\Domain\Entity\User;
-use App\Admin\User\Domain\Repository\UserWriteRepositoryInterface;
 use App\SharedKernel\Infrastructure\Doctrine\Persistence\PersistenceManager;
 use App\SharedKernel\Infrastructure\Doctrine\Persistence\Trait\WriteRepositoryTrait;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
-class UserWriteRepository extends ServiceEntityRepository implements UserWriteRepositoryInterface
+class MovieWriteRepository extends ServiceEntityRepository implements MovieWriteRepositoryInterface
 {
     use WriteRepositoryTrait;
 

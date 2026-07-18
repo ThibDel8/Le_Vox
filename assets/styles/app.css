@@ -1,3 +1,7 @@
-body {
-    background-color: skyblue;
-}
+
+@import "base/base.css";
+@import "base/fonts.css";
+@import "base/reset.css";
+@import "base/variables.css";
+
+@import "layout/header.css";

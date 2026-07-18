@@ -1,0 +1,55 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block h1 %}Rechercher un film{% endblock %}
+
+{% block body %}
+
+    <div class="searchbar">
+        <form action="{{ path('admin_movie_search') }}" method="get" class="searchbar__form">
+            <input
+                type="text"
+                name="query"
+                value="{{ app.request.query.get('query') }}"
+                placeholder="Titre du film..."
+                class="searchbar__input"
+            >
+            <button type="submit" class="searchbar__button">Chercher</button>
+        </form>
+    </div>
+
+    <div class="movie-results">
+        <h2>Résultat</h2>
+        <p>
+            {% set count = movies|length %}
+            {% if count == 0 %}
+                Aucun film trouvé
+            {% elseif count == 1 %}
+                1 film trouvé
+            {% else %}
+                {{ count }} films trouvés
+            {% endif %}
+        </p>
+        {% for movie in movies %}
+            <a href="{{ path('admin_movie_create', {id: movie.id}) }}" title="Ajouter ce film">
+                <div class="movie-result">
+                    <div class="movie-result-poster">
+                        {% if movie.poster %}
+                            <img src="{{ movie.poster }}" alt="Poster du film">
+                        {% else %}
+                            <img src="{{ asset('images/posters/no-dispo.png') }}" alt="Poster non disponible">
+                        {% endif %}
+                    </div>
+                    <div class="movie-result-infos">
+                        <h3>{{ movie.title }}</h3>
+                        <p><strong>Sortie :</strong> {{ movie.releaseDate }}</p>
+                        <p><strong>Réalisation :</strong> {{ movie.directing }}</p>
+                        <p><strong>Genres :</strong> {{ movie.genres }}</p>
+                        <br>
+                        <p><strong>Description :</strong> {{ movie.description }}</p>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+{% endblock %}

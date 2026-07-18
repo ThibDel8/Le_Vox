@@ -1,0 +1,269 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--grey-light);
+    line-height: 1.6;
+}
+
+h2, h3 {
+    margin-top: 0;
+    color: var(--red);
+}
+
+a {
+    color: var(--red);
+    text-decoration: none;
+}
+
+/* =========================
+    CONTENEUR
+    ========================= */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+/* =========================
+    INFO IMPORTANTE
+    ========================= */
+.alert {
+    background-color: var(--white);
+    border-left: 6px solid var(--red);
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+.alert strong {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* =========================
+    FILMS
+    ========================= */
+.films {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.film {
+    background-color: var(--white);
+    border: 1px solid var(--grey);
+    padding: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.film img {
+    width: 120px;
+    height: 180px;
+    object-fit: cover;
+    border: 1px solid var(--grey);
+}
+
+.film h3 {
+    margin-bottom: 5px;
+}
+
+.film .infos {
+    font-size: 0.95rem;
+    color: var(--grey-dark);
+    margin-bottom: 10px;
+}
+
+.seances {
+    font-size: 0.95rem;
+}
+
+/* =========================
+    TARIFS / CONTACT
+    ========================= */
+.infos-pratiques {
+    background-color: var(--white);
+    border: 1px solid var(--grey);
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.infos-pratiques ul {
+    padding-left: 20px;
+}
+
+.tmdb-attribution {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tmdb-attribution .tmdb-icon {
+    height: 0.7rem;
+}
+
+.tmdb-attribution p {
+    margin: 0;
+}
+
+/* =========================
+    FOOTER
+    ========================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.85rem;
+    color: var(--grey-dark);
+}
+
+/* =========================
+    RESPONSIVE SIMPLE
+    ========================= */
+@media (min-width: 700px) {
+    .films {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.movie-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.movie-result {
+    height: 200px;
+    width: 600px;
+    display: flex;
+    align-items: center;
+    background-color: var(--white);
+    border-left: 6px solid var(--red);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.movie-result-poster {
+    height: 100%;
+    width: 25%;
+    display: flex;
+    align-items: center;
+}
+
+.movie-result-poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.movie-result-infos {
+    height: 100%;
+    width: 75%;
+    padding: 15px;
+    overflow: scroll;
+}
+
+.movie-result-infos h3 {
+    text-align: center;
+    margin-bottom: 0.7rem;
+}
+
+.movie-result-infos p {
+    margin: 0;
+}
+
+.searchbar {
+    max-width: 600px;
+    margin: 1.5rem auto;
+}
+
+.searchbar__form {
+    display: flex;
+    border: 1px solid #a82c2c;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.searchbar__input {
+    flex: 1;
+    padding: 0.5rem 1rem;
+    border: none;
+    font-size: 1rem;
+}
+
+.searchbar__input:focus {
+    outline: none;
+}
+
+.searchbar__button {
+    background-color: #a82c2c;
+    color: #fff;
+    padding: 0 1rem;
+    border: none;
+    cursor: pointer;
+}
+
+.movie-editor {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.movie-editor__title {
+    margin: 25px 0 0 0;
+}
+
+.movie-editor__layout {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--white);
+    border-left: 6px solid var(--red);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.movie-editor__poster {
+    height: auto;
+}
+
+.movie-editor__poster img {
+    display: block;
+    aspect-ratio: 2 / 3;
+    height: 500px;
+    object-fit: cover;
+}
+
+.movie-editor__fields {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex: fit-content;
+    padding: 10px;
+}
+
+.movie-editor__fields .form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.movie-editor__fields textarea {
+    height: 100px;
+    width: 90%;
+    padding: 5px;
+}
+
+.movie-creator__layout {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    border-left: 6px solid var(--red);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    padding: 10px
+}
+
+.movie-editor__actions {
+    display: flex;
+    justify-content: end;
+    margin-top: 25px;
+}

@@ -8,7 +8,4 @@ use App\Admin\User\Domain\Entity\User;
 
 interface UserWriteRepositoryInterface
 {
-    public function delete(User $user, bool $flush = true): void;
-
-    public function save(User $user, bool $flush = true): void;
 }

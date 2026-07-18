@@ -8,8 +8,8 @@
         <form action="{{ path('admin_movie_search') }}" method="get" class="searchbar__form">
             <input
                 type="text"
-                name="query"
-                value="{{ app.request.query.get('query') }}"
+                name="title"
+                value="{{ app.request.query.get('title') }}"
                 placeholder="Titre du film..."
                 class="searchbar__input"
             >

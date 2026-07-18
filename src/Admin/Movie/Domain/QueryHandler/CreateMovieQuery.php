@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace App\Admin\Movie\Domain\QueryHandler;
 
+use App\Admin\Movie\Domain\DTO\Request\CreateMovieRequest;
 use App\Admin\Movie\Domain\DTO\Response\MovieResponse;
 use App\Admin\Movie\Infrastructure\Tmdb\TmdbService;
 
 readonly class CreateMovieQuery
 {
-    public function __construct(private TmdbService $tmdbService)
-    {
+    public function __construct(
+        private TmdbService $tmdbService,
+    ) {
     }
 
-    public function fetch(int $id): MovieResponse
+    public function fetch(int $apiId): CreateMovieRequest
     {
-        $result = $this->tmdbService->getMovieDetailsWithCredits($id);
-
+        $result = $this->tmdbService->getMovieDetailsWithCredits($apiId);
         $details = $this->tmdbService->getMovieDetailsWithCredits($result['id']);
 
         $directors = [];
@@ -35,10 +36,22 @@ readonly class CreateMovieQuery
 
         $genresString = $resultGenres ? implode(', ', $resultGenres) : '';
 
-        return MovieResponse::fromApiResponse(
+        $movieResponse = MovieResponse::fromApiResponse(
             movie: $details,
             genresString: $genresString,
             directorString: $directorString,
+        );
+
+        return CreateMovieRequest::create(
+            apiId: $movieResponse->getId(),
+            title: $movieResponse->getTitle(),
+            description: $movieResponse->getDescription(),
+            poster: $movieResponse->getPoster(),
+            genres: $movieResponse->getGenres(),
+            directing: $movieResponse->getDirecting(),
+            releaseDate: $movieResponse->getReleaseDate(),
+            voteAverage: $movieResponse->getVoteAverage(),
+            voteCount: $movieResponse->getVoteCount(),
         );
     }
 }

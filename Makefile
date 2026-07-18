@@ -46,6 +46,9 @@ init:
 cache-clear:
 	$(COMPOSE_EXEC) $(CONSOLE) cache:clear
 
+migration:
+	$(COMPOSE_EXEC) $(CONSOLE) make:migration
+
 migrate:
 	$(COMPOSE_EXEC) $(CONSOLE) doctrine:migrations:migrate --no-interaction
 

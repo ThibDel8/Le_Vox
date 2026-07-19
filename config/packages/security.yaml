@@ -7,7 +7,7 @@ security:
     providers:
         app_user_provider:
             entity:
-                class: App\Admin\User\Domain\Entity\User
+                class: App\Security\Domain\Entity\User
                 property: username
 
     firewalls:
@@ -19,12 +19,12 @@ security:
             lazy: true
             provider: app_user_provider
             form_login:
-                login_path: admin_login
-                check_path: admin_login
+                login_path: login
+                check_path: login
                 default_target_path: admin_movie_list
                 enable_csrf: true
             logout:
-                path: admin_logout
+                path: logout
                 # where to redirect after logout
                 # target: app_any_route
 

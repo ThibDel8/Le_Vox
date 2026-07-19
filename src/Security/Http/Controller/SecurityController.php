@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Admin\User\Http\Controller;
+namespace App\Security\Http\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -9,7 +9,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 final class SecurityController extends AbstractController
 {
-    #[Route(path: '/backstage-admin/login', name: 'admin_login')]
+    #[Route(path: '/login', name: 'login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {
         // get the login error if there is one
@@ -24,7 +24,7 @@ final class SecurityController extends AbstractController
         ]);
     }
 
-    #[Route(path: '/backstage-admin/logout', name: 'admin_logout')]
+    #[Route(path: '/logout', name: 'logout')]
     public function logout(): void
     {
         throw new \LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');

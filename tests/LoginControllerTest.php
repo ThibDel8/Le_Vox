@@ -2,7 +2,7 @@
 
 namespace App\Tests;
 
-use App\Admin\User\Domain\Entity\User;
+use App\Security\Domain\Entity\User;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;

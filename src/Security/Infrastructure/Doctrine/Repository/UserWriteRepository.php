@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Admin\User\Infrastructure\Doctrine\Repository;
+namespace App\Security\Infrastructure\Doctrine\Repository;
 
-use App\Admin\User\Domain\Entity\User;
-use App\Admin\User\Domain\Repository\UserWriteRepositoryInterface;
+use App\Security\Domain\Entity\User;
+use App\Security\Domain\Repository\UserWriteRepositoryInterface;
 use App\SharedKernel\Infrastructure\Doctrine\Persistence\PersistenceManager;
 use App\SharedKernel\Infrastructure\Doctrine\Persistence\Trait\WriteRepositoryTrait;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;

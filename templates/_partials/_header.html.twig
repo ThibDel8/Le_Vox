@@ -1,8 +1,17 @@
 <header>
-    {% if isHome %}
-        <h1 class="site-name">Le Vox</h1>
-    {% else %}
-        <a class="site-name" href="{{ path('app_homepage') }}">Le Vox</a>
-    {% endif %}
-    <p>{{ headerSubtitle }}</p>
+    <div class="logo">
+        <a href="{{ path('app_homepage') }}">
+            <img src="{{ asset('images/logos/logo-image.png') }}" alt="Logo du cinéma">
+            <h1>{{ projectName }}</h1>
+        </a>
+    </div>
+    <div class="title-page">
+        <h2>{{ headerSubtitle }}</h2>
+    </div>
+        <div class="app-user">
+            {% if app.user %}
+                <p>{{ app.user.userIdentifier }}</p>
+                <a href="{{ path('logout') }}">Se déconnecter</a>
+            {% endif %}
+        </div>
 </header>

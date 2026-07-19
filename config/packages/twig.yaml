@@ -1,5 +1,8 @@
 twig:
     file_name_pattern: '*.twig'
+    globals:
+        projectName: '%project_name%'
+        projectSlogan: '%project_slogan%'
 
 when@test:
     twig:

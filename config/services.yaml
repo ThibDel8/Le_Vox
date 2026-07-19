@@ -10,6 +10,8 @@ parameters:
     admin.init.username: '%env(ADMIN_INIT_USERNAME)%'
     admin.init.password: '%env(ADMIN_INIT_PASSWORD)%'
     tmdb_api_key: '%env(TMDB_API_KEY)%'
+    project_name: '%env(PROJECT_NAME)%'
+    project_slogan: '%env(PROJECT_SLOGAN)%'
 
 services:
     # default configuration for services in *this* file

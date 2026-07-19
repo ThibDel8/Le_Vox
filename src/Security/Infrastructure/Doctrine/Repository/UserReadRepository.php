@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Admin\User\Infrastructure\Doctrine\Repository;
+namespace App\Security\Infrastructure\Doctrine\Repository;
 
-use App\Admin\User\Domain\Entity\User;
-use App\Admin\User\Domain\Repository\UserReadRepositoryInterface;
+use App\Security\Domain\Entity\User;
+use App\Security\Domain\Repository\UserReadRepositoryInterface;
 use Doctrine\ORM\EntityManagerInterface;
 
 readonly class UserReadRepository implements UserReadRepositoryInterface

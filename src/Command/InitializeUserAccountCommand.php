@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Command;
 
-use App\Admin\User\Domain\Entity\User;
-use App\Admin\User\Domain\Repository\UserReadRepositoryInterface;
-use App\Admin\User\Domain\Repository\UserWriteRepositoryInterface;
+use App\Security\Domain\Entity\User;
+use App\Security\Domain\Repository\UserReadRepositoryInterface;
+use App\Security\Domain\Repository\UserWriteRepositoryInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Admin\User\Domain\Repository;
+namespace App\Security\Domain\Repository;
 
-use App\Admin\User\Domain\Entity\User;
+use App\Security\Domain\Entity\User;
 
 interface UserReadRepositoryInterface
 {
